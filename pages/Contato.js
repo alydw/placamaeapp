@@ -1,7 +1,7 @@
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, StatusBar } from 'react-native';
 import { NativeBaseProvider, Box, Button, Text, ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
 
-export default function Materiais(){
+export default function Contato(){
     const BotaoCadastro = () => {
         return <Box alignItems="center">
             <Button
@@ -34,8 +34,6 @@ export default function Materiais(){
         <NativeBaseProvider>
         <View style={styles.container}>
         <Cadastro></Cadastro>
-        
-          <Botao></Botao>
           <StatusBar style="auto" />
         </View>
         </NativeBaseProvider>
