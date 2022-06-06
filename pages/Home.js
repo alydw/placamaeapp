@@ -2,8 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Image } from 'react-native';
 import { NativeBaseProvider, Box, Button, Text, ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
+import { useEffect } from 'react';
 
-export default function Home() {
+export default function Home({navigation}) {
 
   const Botao = () => {
     return <Box alignItems="center">
@@ -12,6 +13,10 @@ export default function Home() {
          onPress={() => console.log("hello world")}>Denuncie</Button>
       </Box>;
   };
+
+  
+    
+  
 
   return (
     <NativeBaseProvider>

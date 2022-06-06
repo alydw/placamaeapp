@@ -3,13 +3,22 @@ import { StyleSheet, View, Image } from 'react-native';
 import { NativeBaseProvider, Box, Button, Text, ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
 import Tabs from "./navigation/Tabs"
 import { NavigationContainer } from '@react-navigation/native';
+import Stacks from './navigation/Stacks';
+import { useState } from 'react';
 
 export default function App() {
+
+  const [signIn, setSignIn] = useState(false)
 
   return (
     <NavigationContainer>
     <NativeBaseProvider>
-    <Tabs></Tabs>
+    {
+      signIn ? 
+      <Tabs></Tabs>
+       : 
+       <Stacks/>
+    }
     </NativeBaseProvider>
     </NavigationContainer>
   );
