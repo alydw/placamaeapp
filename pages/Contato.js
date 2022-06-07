@@ -24,7 +24,7 @@ export default function Contato(){
 
     const styles = StyleSheet.create({
         container: {
-          flex: 2,
+          flex: 1,
           alignItems: 'center',
           justifyContent: 'space-between',
           backgroundColor: '#48378e',
@@ -37,14 +37,15 @@ export default function Contato(){
         },
         head: {
           color: 'white',
-          top: 60,
+          top: 0,
         },
         image: {
         width: 190,
         height: 70,
-        position: 'absolute',
+      
         top: 3,
         marginBottom: 10,
+        border : '2px solid green'
   },
         
       });
