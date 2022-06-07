@@ -45,7 +45,7 @@ export default function Contato(){
       
         top: 3,
         marginBottom: 10,
-        border : '2px solid green'
+       
   },
         
       });
