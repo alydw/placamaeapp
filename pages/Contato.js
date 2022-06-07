@@ -38,11 +38,12 @@ export default function Contato(){
         head: {
           color: 'white',
           top: 0,
+          margin: 5,
+          padding: 10
         },
         image: {
         width: 190,
         height: 70,
-      
         top: 3,
         marginBottom: 10,
        

@@ -4,11 +4,15 @@ import { StyleSheet, View, StatusBar } from 'react-native';
 import { NativeBaseProvider, Box,  Text, ScrollView, Stack, FormControl, Input} from 'native-base';
 import Botao from '../components/Botao';
 import axios from 'axios';
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { AuthContext } from '../provider';
+
 
 const Cadastro = () => {
+  const {resultado, setResultado} = useContext(AuthContext)
 
-      const [user, setUser] = useState({
+
+      const [userCadastro, setUser] = useState({
         name: '',
         age: '',
         password: '',
@@ -17,18 +21,20 @@ const Cadastro = () => {
      
 
       const cadastrar = () => {
-        axios.post("http://localhost:8080/adults", user).then((response) => console.log(response))
+        axios.post("https://fierce-ocean-02102.herokuapp.com/adults", userCadastro).then((response) => {
+          console.log(response)
+          setResultado({user : userCadastro, cadastrado : true })
+        })
+
       } 
       
     
-        
-        
+    
           return (
             <NativeBaseProvider>
             <View style={styles.container}>
-         
-              <StatusBar style="auto" />
-              <ScrollView w="100%">
+            <ScrollView w="100%">
+
                 <Stack space={2.0} alignSelf="center" px="3" safeArea mt="150" w={{
                 base: "100%",
                 md: "25%"
@@ -41,9 +47,9 @@ const Cadastro = () => {
                    
                     <FormControl mb="5">
                       <FormControl.Label>Digite seu e-mail</FormControl.Label>
-                      <Input  value={user.email} onChangeText={value => {
-                        console.log(value)
-                        setUser({...user, email: value})
+                      <Input style={styles.cor} value={userCadastro.email} onChangeText={value => {
+                        
+                        setUser({...userCadastro, email: value})
                       }
                       }/>
                     </FormControl>
@@ -51,23 +57,26 @@ const Cadastro = () => {
                    
                     <FormControl mb="5">
                       <FormControl.Label>Digite sua senha</FormControl.Label>
-                      <Input onChangeText={value => setUser({...user, password: value})} value={user.password}/>
+                      <Input  style={styles.cor} onChangeText={value => setUser({...userCadastro, password: value})} value={userCadastro.password}/>
                     </FormControl>
 
                     <FormControl mb="5">
                       <FormControl.Label>Digite sua idade</FormControl.Label>
-                      <Input onChangeText={value => setUser({...user, age: value})} value={user.age}/>
+                      <Input style={styles.cor} onChangeText={value => setUser({...userCadastro, age: value})} value={userCadastro.age}/>
                     </FormControl>
 
                     <FormControl mb="5">
                       <FormControl.Label>Digite seu nome</FormControl.Label>
-                      <Input onChangeText={value => setUser({...user, name: value})} value={user.name}/>
+                      <Input style={styles.cor} onChangeText={value => setUser({...userCadastro, name: value})} value={userCadastro.name}/>
                     </FormControl>
                 
                     <Botao alignItems='center' style={styles.botao2} text='Cadastre' onPress={cadastrar}/>
                   </Box>
                 </Stack>
-              </ScrollView>;
+              </ScrollView>
+
+              <StatusBar style="auto" />
+
             </View>
             </NativeBaseProvider>
           );
@@ -94,5 +103,8 @@ const styles = StyleSheet.create({
       width: 70,
       height: 32,
       margin: 1,
+    },
+    cor : {
+     color : 'white'
     }
   });

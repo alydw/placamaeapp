@@ -1,25 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Image } from 'react-native';
-import { NativeBaseProvider, Box, Button, Text, ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
+
+import { StyleSheet } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
 import Tabs from "./navigation/Tabs"
 import { NavigationContainer } from '@react-navigation/native';
 import Stacks from './navigation/Stacks';
-import { useState } from 'react';
 
+//import {  AuthProvider } from './provider';
+import Navigation from './navigation';
+import { createContext, useState } from 'react';
+import { AuthContext } from './provider';
+
+   
 export default function App() {
+   
 
-  const [signIn, setSignIn] = useState(false)
+  const[ resultado, setResultado ]  = useState( {
+    user : {
+
+        name : '',
+        email : '',
+        password : '',
+        age : ''
+    },
+
+    cadastrado : false
+})
+
+ 
+  console.log(resultado?.cadastrado)
+
 
   return (
     <NavigationContainer>
-    <NativeBaseProvider>
-    {
-      signIn ? 
-      <Tabs></Tabs>
-       : 
-       <Stacks/>
-    }
-    </NativeBaseProvider>
+        <NativeBaseProvider>
+            <AuthContext.Provider value={{resultado, setResultado}}>
+                <Navigation cadastro={resultado.cadastrado} />
+            </AuthContext.Provider>
+        </NativeBaseProvider>
     </NavigationContainer>
   );
 }
@@ -59,3 +76,4 @@ const styles = StyleSheet.create({
     margin: 40,
   }
 });
+
