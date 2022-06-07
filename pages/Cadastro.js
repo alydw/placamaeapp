@@ -19,8 +19,11 @@ const Cadastro = () => {
         axios.post("http://localhost:8080/adults", user).then((response) => console.log(response))
       } 
     
-        const Cadastro = () => {
-            return <ScrollView w="100%">
+    
+          return (
+            <NativeBaseProvider>
+            <View style={styles.container}>
+            <ScrollView w="100%">
                 <Stack space={2.0} alignSelf="center" px="3" safeArea mt="150" w={{
                 base: "100%",
                 md: "25%"
@@ -53,12 +56,6 @@ const Cadastro = () => {
                   </Box>
                 </Stack>
               </ScrollView>;
-          };
-    
-          return (
-            <NativeBaseProvider>
-            <View style={styles.container}>
-            <Cadastro></Cadastro>
               <StatusBar style="auto" />
             </View>
             </NativeBaseProvider>
