@@ -14,26 +14,41 @@ const Cadastro = () => {
         password: '',
         email: ''
       })
+     
 
       const cadastrar = () => {
         axios.post("http://localhost:8080/adults", user).then((response) => console.log(response))
       } 
+      
     
-        const Cadastro = () => {
-            return <ScrollView w="100%">
+        
+        
+          return (
+            <NativeBaseProvider>
+            <View style={styles.container}>
+         
+              <StatusBar style="auto" />
+              <ScrollView w="100%">
                 <Stack space={2.0} alignSelf="center" px="3" safeArea mt="150" w={{
                 base: "100%",
                 md: "25%"
               }}>
+              
                   <Box>
                     <Text bold fontSize="xl" mb="1" color="white">
-                      Cadastre-se
+                    Cadastre-se
                     </Text>
+                   
                     <FormControl mb="5">
                       <FormControl.Label>Digite seu e-mail</FormControl.Label>
-                      <Input  value={user.email} onChangeText={value => setUser({...user, email: value})}/>
+                      <Input  value={user.email} onChangeText={value => {
+                        console.log(value)
+                        setUser({...user, email: value})
+                      }
+                      }/>
                     </FormControl>
                       
+                   
                     <FormControl mb="5">
                       <FormControl.Label>Digite sua senha</FormControl.Label>
                       <Input onChangeText={value => setUser({...user, password: value})} value={user.password}/>
@@ -53,13 +68,6 @@ const Cadastro = () => {
                   </Box>
                 </Stack>
               </ScrollView>;
-          };
-    
-          return (
-            <NativeBaseProvider>
-            <View style={styles.container}>
-            <Cadastro></Cadastro>
-              <StatusBar style="auto" />
             </View>
             </NativeBaseProvider>
           );
