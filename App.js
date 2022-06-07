@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function App() {
 
-  const [signIn, setSignIn] = useState(false)
+  const [signIn, setSignIn] = useState(true)
 
   return (
     <NavigationContainer>

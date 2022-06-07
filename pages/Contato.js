@@ -1,63 +1,39 @@
-import { StyleSheet, View, Image, StatusBar } from 'react-native';
-import { NativeBaseProvider, Box, Button, Text, ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
+import { StyleSheet, View, Image, StatusBar, Text, Linking } from 'react-native';
+import { NativeBaseProvider, Box, Button,  ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
+
 
 export default function Contato(){
-    const BotaoCadastro = () => {
-        return <Box alignItems="center">
-            <Button
-             style={styles.botao2}
-             onPress={() => console.log("hello world")}>Cadastre</Button>
-          </Box>;
+        return(
+          <View style={styles.container}>
+              <Heading style={styles.head}>Contato</Heading>
+              <View style={{border : '1px solid green', height: 400}}>
+              <Text style={styles.text} onPress={() => Linking.openURL('https://placamae.org/')}>https://placamae.org/</Text>
+                  <Text style={styles.text}>contato@placamae.org</Text>
+                  <Text style={styles.text}>Rua Marques do Herval, 167/902 Box 31,</Text>
+                  <Text style={styles.text}>CEP 50020-030</Text>
+              </View>
+          </View>
+          )
       };
-
-    const Cadastro = () => {
-        return <ScrollView w="100%">
-            <Stack space={2.0} alignSelf="center" px="3" safeArea mt="150" w={{
-            base: "100%",
-            md: "25%"
-          }}>
-              <Box>
-                <Text bold fontSize="xl" mb="1" color="white">
-                  Cadastre-se
-                </Text>
-                <FormControl mb="5">
-                  <FormControl.Label>Digite seu e-mail</FormControl.Label>
-                  <Input />
-                </FormControl>
-                <BotaoCadastro></BotaoCadastro>
-              </Box>
-            </Stack>
-          </ScrollView>;
-      };
-
-      return (
-        <NativeBaseProvider>
-        <View style={styles.container}>
-        <Cadastro></Cadastro>
-          <StatusBar style="auto" />
-        </View>
-        </NativeBaseProvider>
-      );
-    }
 
     const styles = StyleSheet.create({
         container: {
-          flex: 1,
+          flex: 2,
           alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#48378e'
+          justifyContent: 'space-between',
+          backgroundColor: '#48378e',
+          border : "1px solid red"
         },
-        botao:{
-          backgroundColor: "#FF0000",
-          margin: 20,
-          padding: 10,
-          width: 70,
-          height: 32
+
+        text : {
+          color : 'white',
+          fontFamily: "Helvetica Neue"
         },
-        botao2: {
-          backgroundColor: "#FF00FF",
-          width: 70,
-          height: 32,
-          margin: 1,
+
+        head: {
+          
+          color: 'white',
+          top: 0,
         }
+        
       });
