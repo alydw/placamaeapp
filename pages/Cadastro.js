@@ -1,20 +1,23 @@
 
 
-import { StyleSheet, View, Image, StatusBar } from 'react-native';
-import { NativeBaseProvider, Box,  Text, ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import { NativeBaseProvider, Box,  Text, ScrollView, Stack, FormControl, Input} from 'native-base';
 import Botao from '../components/Botao';
+import axios from 'axios';
+import { useState } from 'react'
 
 const Cadastro = () => {
-   
-       /* const BotaoCadastro = () => {
-            return <Box alignItems="center">
-                <Button
-                 style={styles.botao2}
-                 onPress={() => console.log("hello world")}>Cadastre</Button>
-              </Box>;
-          }; */
-        
-         
+
+      const [user, setUser] = useState({
+        name: '',
+        age: '',
+        password: '',
+        email: ''
+      })
+
+      const cadastrar = () => {
+        axios.post("http://localhost:8080/adults", user).then((response) => console.log(response))
+      } 
     
         const Cadastro = () => {
             return <ScrollView w="100%">
@@ -28,10 +31,25 @@ const Cadastro = () => {
                     </Text>
                     <FormControl mb="5">
                       <FormControl.Label>Digite seu e-mail</FormControl.Label>
-                      <Input />
+                      <Input  value={user.email} onChangeText={value => setUser({...user, email: value})}/>
+                    </FormControl>
+                      
+                    <FormControl mb="5">
+                      <FormControl.Label>Digite sua senha</FormControl.Label>
+                      <Input onChangeText={value => setUser({...user, password: value})} value={user.password}/>
+                    </FormControl>
+
+                    <FormControl mb="5">
+                      <FormControl.Label>Digite sua idade</FormControl.Label>
+                      <Input onChangeText={value => setUser({...user, age: value})} value={user.age}/>
+                    </FormControl>
+
+                    <FormControl mb="5">
+                      <FormControl.Label>Digite seu nome</FormControl.Label>
+                      <Input onChangeText={value => setUser({...user, name: value})} value={user.name}/>
                     </FormControl>
                 
-                    <Botao alignItems='center' style={styles.botao2} text='Cadastre' onPress={() => console.log('pegou doidão')}/>
+                    <Botao alignItems='center' style={styles.botao2} text='Cadastre' onPress={cadastrar}/>
                   </Box>
                 </Stack>
               </ScrollView>;

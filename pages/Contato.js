@@ -24,6 +24,8 @@ export default function Contato(){
                   <FormControl.Label>Digite seu e-mail</FormControl.Label>
                   <Input />
                 </FormControl>
+
+              
                 <BotaoCadastro></BotaoCadastro>
               </Box>
             </Stack>
