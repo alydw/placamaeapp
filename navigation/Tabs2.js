@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Contato from "../pages/Contato"
-import { StyleSheet } from "react-native"
+
 import Home from "../pages/Home"
 import { NavigationContainer } from '@react-navigation/native';
-import Materiais from "../pages/Materiais"
+
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +13,7 @@ const Tabs2 = () => {
         <Tab.Navigator initialRouteName='Home'>
             <Tab.Screen name="Home" component={Home} options={{headerShown: false}}/>
             <Tab.Screen name="Contato" component={Contato} options={{headerShown: false}}/>
-            <Tab.Screen name="Materiais" component={Materiais} options={{headerShown: false}}/>
+            
         </Tab.Navigator>
         </NavigationContainer>
     )

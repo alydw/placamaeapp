@@ -1,5 +1,5 @@
-import { StyleSheet, View, Image, StatusBar, Text, Linking } from 'react-native';
-import { NativeBaseProvider, Box, Button,  ScrollView, Stack, Input, FormControl, Heading } from 'native-base';
+import { StyleSheet, View, Image, Text, Linking } from 'react-native';
+import { Heading } from 'native-base';
 import { SiInstagram } from "react-icons/si";
 
 export default function Contato(){
