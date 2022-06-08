@@ -1,5 +1,4 @@
 
-
 import { StyleSheet, View, StatusBar } from 'react-native';
 import { NativeBaseProvider, Box,  Text, ScrollView, Stack, FormControl, Input} from 'native-base';
 import Botao from '../components/Botao';

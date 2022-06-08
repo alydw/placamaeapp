@@ -10,7 +10,6 @@ const Tabs = () => {
     return(
         <Tab.Navigator initialRouteName='Home'>
             <Tab.Screen name="Home" component={Home}></Tab.Screen>
-
             <Tab.Screen name="Contato" component={Contato} />
 
         

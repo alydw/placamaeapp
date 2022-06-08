@@ -14,10 +14,6 @@ export default function Home({navigation}) {
       </Box>;
   };
 
-  
-    
-  
-
   return (
     <NativeBaseProvider>
     <View style={styles.container}>
