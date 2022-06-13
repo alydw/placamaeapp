@@ -22,25 +22,25 @@ const Cadastro = () => {
      
       const cadastrar = () => {
           if(userCadastro.age <= IDADE_KIDS_BASE){
-            axios.post("https://fierce-ocean-02102.herokuapp.com/kids", userCadastro
+            axios.post("https://fierce-ocean-02102.herokuapp.com/kids", userCadastro)
               .then((res) => {
                 res.json();
                 setResultado({user : userCadastro, cadastrar : true});
-              }))
+              })
           }
           else if(userCadastro.age > IDADE_KIDS_BASE && userCadastro.age <= IDADE_ADOLESCENT_BASE){
-            axios.post("https://fierce-ocean-02102.herokuapp.com/adolescents", userCadastro
+            axios.post("https://fierce-ocean-02102.herokuapp.com/adolescents", userCadastro)
               .then((res) => {
                 res.json();
                 setResultado({user : userCadastro, cadastrar : true});
-              }))
+              })
           }
           else if(userCadastro.age >= IDADE_ADULT_BASE){
-            axios.post("https://fierce-ocean-02102.herokuapp.com/adults", userCadastro
+            axios.post("https://fierce-ocean-02102.herokuapp.com/adults", userCadastro)
               .then((res) => {
                   res.json();
                   setResultado({user: userCadastro, cadastrar : true});
-              }))
+              })
           }
       } 
       
