@@ -5,35 +5,34 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useEffect } from 'react';
 
 
-export default function Açoes({navigation}) {
+export default function Acoes({navigation}) {
 
       return (
       <NativeBaseProvider>
-      <View style={styles.container}>
-      <Image 
-      style={styles.image}
-      source={require('../assets/logo.png')}
-      />
-      <Text></Text>
-      <Box style={styles.inicio}>
-      <Heading color="white">Nossas Ações </Heading>
-      <Text style={styles.text}>
-      A PlacaMãe.Org_ desenvolve atividades, em escolas públicas e privadas, da região metropolitana 
-      do Recife. Levamos para crianças e adolescentes a temática : </Text>
-      <Text style={styles.text}>Internet: contexto, limites e responsabilidades, esse assunto nos 
-      direciona a uma conversa sobre 
-      Cyberbullying. </Text> 
-      <Image 
-      style={styles.imagebox}
-      source={require('../assets/ft0.png')}
-      />
-      <Image 
-      style={styles.imagebox}
-      source={require('../assets/ft1.jpeg')}
-      />
-      </Box>
-     
-      </View>
+        <View style={styles.container}>
+          <Image 
+          style={styles.image}
+          source={require('../assets/logo.png')}
+          />
+          <Text></Text>
+          <Box style={styles.inicio}>
+            <Heading color="white">Nossas Ações </Heading>
+              <Text style={styles.text}>
+              A PlacaMãe.Org_ desenvolve atividades, em escolas públicas e privadas, da região metropolitana 
+              do Recife. Levamos para crianças e adolescentes a temática : </Text>
+              <Text style={styles.text}>Internet: contexto, limites e responsabilidades, esse assunto nos 
+              direciona a uma conversa sobre 
+              Cyberbullying. </Text> 
+            <Image 
+              style={styles.imagebox}
+              source={require('../assets/ft0.png')}
+            />
+            <Image 
+              style={styles.imagebox}
+              source={require('../assets/ft1.jpeg')}
+            />
+          </Box>
+        </View>
       </NativeBaseProvider>
     );
   }

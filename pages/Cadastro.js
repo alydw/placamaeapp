@@ -18,9 +18,8 @@ const Cadastro = () => {
         age: '',
         password: '',
         email: ''
-      })
+      });
      
-
       const cadastrar = () => {
           if(userCadastro.age <= IDADE_KIDS_BASE){
             axios.post("https://fierce-ocean-02102.herokuapp.com/kids", userCadastro
