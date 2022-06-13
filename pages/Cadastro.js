@@ -8,8 +8,10 @@ import { AuthContext } from '../provider';
 
 
 const Cadastro = () => {
-  const {resultado, setResultado} = useContext(AuthContext)
-
+      const {resultado, setResultado} = useContext(AuthContext);
+      const IDADE_KIDS_BASE = 13;
+      const IDADE_ADOLESCENT_BASE = 17;
+      const IDADE_ADULT_BASE = 18;
 
       const [userCadastro, setUser] = useState({
         name: '',
@@ -20,15 +22,29 @@ const Cadastro = () => {
      
 
       const cadastrar = () => {
-        axios.post("https://fierce-ocean-02102.herokuapp.com/adults", userCadastro).then((response) => {
-          console.log(response)
-          setResultado({user : userCadastro, cadastrado : true })
-        })
-
+          if(userCadastro.age <= IDADE_KIDS_BASE){
+            axios.post("https://fierce-ocean-02102.herokuapp.com/kids", userCadastro
+              .then((res) => {
+                res.json();
+                setResultado({user : userCadastro, cadastrar : true});
+              }))
+          }
+          else if(userCadastro.age > IDADE_KIDS_BASE && userCadastro.age <= IDADE_ADOLESCENT_BASE){
+            axios.post("https://fierce-ocean-02102.herokuapp.com/adolescents", userCadastro
+              .then((res) => {
+                res.json();
+                setResultado({user : userCadastro, cadastrar : true});
+              }))
+          }
+          else if(userCadastro.age >= IDADE_ADULT_BASE){
+            axios.post("https://fierce-ocean-02102.herokuapp.com/adults", userCadastro
+              .then((res) => {
+                  res.json();
+                  setResultado({user: userCadastro, cadastrar : true});
+              }))
+          }
       } 
       
-    
-    
           return (
             <NativeBaseProvider>
             <View style={styles.container}>
