@@ -67,7 +67,6 @@ const Cadastro = () => {
                       }
                       }/>
                     </FormControl>
-                      
                    
                     <FormControl mb="5">
                       <FormControl.Label>Digite sua senha</FormControl.Label>
@@ -97,7 +96,6 @@ const Cadastro = () => {
     
 }
 
-export default Cadastro
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -122,3 +120,5 @@ const styles = StyleSheet.create({
      color : 'white'
     }
   });
+
+export default Cadastro;
