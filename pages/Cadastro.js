@@ -8,27 +8,42 @@ import { AuthContext } from '../provider';
 
 
 const Cadastro = () => {
-  const {resultado, setResultado} = useContext(AuthContext)
-
+      const {resultado, setResultado} = useContext(AuthContext);
+      const IDADE_KIDS_BASE = 13;
+      const IDADE_ADOLESCENT_BASE = 17;
+      const IDADE_ADULT_BASE = 18;
 
       const [userCadastro, setUser] = useState({
         name: '',
         age: '',
         password: '',
         email: ''
-      })
+      });
      
-
       const cadastrar = () => {
-        axios.post("https://fierce-ocean-02102.herokuapp.com/adults", userCadastro).then((response) => {
-          console.log(response)
-          setResultado({user : userCadastro, cadastrado : true })
-        })
-
+          if(userCadastro.age <= IDADE_KIDS_BASE){
+            axios.post("https://fierce-ocean-02102.herokuapp.com/kids", userCadastro)
+              .then((res) => {
+                console.log(res)
+                setResultado({user : userCadastro, cadastrado : true});
+              })
+          }
+          else if(userCadastro.age > IDADE_KIDS_BASE && userCadastro.age <= IDADE_ADOLESCENT_BASE){
+            axios.post("https://fierce-ocean-02102.herokuapp.com/adolescents", userCadastro)
+              .then((res) => {
+                console.log(res)
+                setResultado({user : userCadastro, cadastrado : true});
+              })
+          }
+          else if(userCadastro.age >= IDADE_ADULT_BASE){
+            axios.post("https://fierce-ocean-02102.herokuapp.com/adults", userCadastro)
+              .then((res) => {
+                  console.log(res)
+                  setResultado({user : userCadastro, cadastrado : true});
+              })
+          }
       } 
       
-    
-    
           return (
             <NativeBaseProvider>
             <View style={styles.container}>
@@ -52,7 +67,6 @@ const Cadastro = () => {
                       }
                       }/>
                     </FormControl>
-                      
                    
                     <FormControl mb="5">
                       <FormControl.Label>Digite sua senha</FormControl.Label>
@@ -82,7 +96,6 @@ const Cadastro = () => {
     
 }
 
-export default Cadastro
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -107,3 +120,5 @@ const styles = StyleSheet.create({
      color : 'white'
     }
   });
+
+export default Cadastro;
