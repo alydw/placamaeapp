@@ -16,6 +16,7 @@ export default function Principal({navigation}) {
     />
     <Heading style={styles.head}>Bem-vindo a Placamãe</Heading>
     <Botao alignItems='center' style={styles.botao2} text='Cadastre-se' onPress={() => navigation.navigate('Cadastro')}/>
+    <Botao alignItems='center' style={styles.botao2} text='Login' />
     <Botao alignItems='center' style={styles.botao} text='Entrar sem login' onPress={() => navigation.navigate('Tabs2')}/>
     </View>
     
@@ -33,24 +34,25 @@ const styles = StyleSheet.create({
   image: {
     width: 190,
     height: 70,
-    position: 'absolute',
-    top: 3,
     marginBottom: 10,
   },
   head: {
       color: 'white',
+      margin: 10
   },
   botao:{
     backgroundColor: "#FF00FF",
-    width: 108,
+    width: 120,
     height: 35,
     margin: 10,
+    borderRadius: 50,
   },
   botao2: {
     backgroundColor: "#FF00FF",
-    width: 79,
+    width: 95,
     height: 35,
     margin: 10,
+    borderRadius: 50,
   },
   
 });
