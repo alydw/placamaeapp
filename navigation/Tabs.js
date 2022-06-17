@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native"
 import Contato from '../pages/Contato'
 import Home from "../pages/Home"
 import Materiais from "../pages/Materiais"
-import Açoes from '../pages/Açoes'
+import Acoes from '../pages/Acoes'
 
 
 const Tab = createBottomTabNavigator();
@@ -14,7 +14,7 @@ const Tabs = () => {
             <Tab.Screen name="Home" component={Home}></Tab.Screen>
             <Tab.Screen name="Contato" component={Contato} />
             <Tab.Screen name="Materiais" component={Materiais}/>
-            <Tab.Screen name="Açoes" component={Açoes}/>
+            <Tab.Screen name="Ações" component={Acoes}/>
             
         </Tab.Navigator>
     )
