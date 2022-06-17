@@ -45,8 +45,8 @@ export default function Acoes({navigation}) {
       backgroundColor: '#48378e',
     },
     image: {
-      width: 180,
-      height: 40,
+      width: 190,
+      height: 70,
       position: 'absolute',
       top: 3,
       marginBottom: 10,
